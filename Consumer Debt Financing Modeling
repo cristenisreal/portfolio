@@ -1,0 +1,29 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample data
+data = {
+    'loan_amount': [10000, 20000, 15000, 25000, 30000],
+    'interest_rate': [0.05, 0.07, 0.06, 0.08, 0.09],
+    'default_rate': [0.01, 0.02, 0.015, 0.025, 0.03]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate expected return
+df['expected_return'] = df['loan_amount'] * df['interest_rate'] * (1 - df['default_rate'])
+
+# Calculate risk
+df['risk'] = df['loan_amount'] * df['default_rate']
+
+# Visualization
+plt.figure(figsize=(10, 5))
+plt.plot(df['loan_amount'], df['expected_return'], label='Expected Return')
+plt.plot(df['loan_amount'], df['risk'], label='Risk', linestyle='--')
+plt.xlabel('Loan Amount')
+plt.ylabel('Value')
+plt.title('Expected Return vs. Risk')
+plt.legend()
+plt.grid(True)
+plt.show()
