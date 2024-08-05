@@ -1,0 +1,46 @@
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+
+# Database connection
+conn <- dbConnect(SQLite(), dbname = "company_data.db")
+
+# SQL Query to extract data
+query <- "
+SELECT 
+    employee_id, task_name, start_time, end_time, status
+FROM 
+    task_log
+WHERE 
+    date BETWEEN '2024-01-01' AND '2024-12-31'
+"
+data <- dbGetQuery(conn, query)
+
+# Data Transformation
+data$start_time <- as.POSIXct(data$start_time, format="%Y-%m-%d %H:%M:%S")
+data$end_time <- as.POSIXct(data$end_time, format="%Y-%m-%d %H:%M:%S")
+data$task_duration <- as.numeric(difftime(data$end_time, data$start_time, units="mins"))
+
+# Data Analysis
+average_duration <- data %>% group_by(task_name) %>% summarise(mean_duration = mean(task_duration, na.rm=TRUE))
+bottlenecks <- data %>% filter(task_duration > average_duration$mean_duration)
+
+# Report Generation
+report <- data %>% group_by(employee_id) %>% summarise(total_duration = sum(task_duration, na.rm=TRUE))
+report$average_duration <- mean(average_duration$mean_duration)
+write.csv(report, "task_report.csv", row.names = FALSE)
+
+# Visualization (Optional)
+ggplot(data, aes(x=task_name, y=task_duration)) + 
+  geom_boxplot() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Task Duration Distribution")
+
+# Close database connection
+dbDisconnect(conn)
+
+# Output monitoring
+cat(sprintf("Report generated: %s\n", Sys.time()))
+cat(sprintf("Identified bottlenecks: %d tasks exceeding average duration.\n", nrow(bottlenecks)))
