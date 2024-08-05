@@ -70,39 +70,4 @@ joblib.dump(model, 'pricing_model.pkl')
 # Load the model
 # model = joblib.load('pricing_model.pkl')
 
-# Documentation
-"""
-Pricing Automation Tool:
 
-1. Data Loading:
-   - The script loads consumer debt data from a CSV file.
-   - It includes fields such as loan amount, credit score, annual income, total debt, loan term, and interest rate.
-
-2. Data Cleaning:
-   - The script removes missing values and invalid loan amounts.
-   - It ensures data consistency and quality for accurate model training.
-
-3. Feature Engineering:
-   - Converts interest rate percentages to decimals.
-   - Calculates the income-to-debt ratio to assess borrower risk.
-
-4. Model Training:
-   - Splits the dataset into training and testing sets.
-   - Trains a linear regression model to predict interest rates.
-
-5. Model Evaluation:
-   - Predicts interest rates on the test set and calculates mean squared error (MSE).
-   - Visualizes the comparison between actual and predicted interest rates.
-
-6. Pricing Optimization Function:
-   - Calculates the optimal interest rate based on the loan amount, credit score, annual income, and loan term.
-
-7. Model Saving:
-   - Saves the trained model for future predictions.
-   - The model can be loaded for real-time pricing automation.
-
-8. Example Usage:
-   - Demonstrates how to use the tool with sample input parameters.
-
-This tool helps automate and optimize the pricing process for consumer debt financing deals, ensuring efficient and accurate pricing decisions.
-"""
