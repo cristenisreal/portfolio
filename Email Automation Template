@@ -47,7 +47,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Get Ready for an Unforgettable Night of Music!</h1>
+        <h1>Get ready for an unforgettable night of music!</h1>
         <p>Join us for our next monthly music event featuring an incredible lineup of artists. Don’t miss out on this electrifying experience!</p>
         <p>Tickets are selling fast, so grab yours now to secure your spot.</p>
         <a href="{{ticket_link | default: '#' }}" class="button" alt="Buy Tickets Now">Buy Tickets Now</a>
