@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Automation</title>
+    <title>Get Your Tickets Now!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,34 +21,38 @@
         }
         h1 {
             color: #333333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         p {
             line-height: 1.6;
             color: #555555;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 16px;
+            padding: 12px 24px;
+            font-size: 18px;
             color: #ffffff;
-            background-color: #007BFF;
+            background-color: #ff6600;
             text-decoration: none;
             border-radius: 5px;
+            margin-top: 20px;
         }
         .button:hover {
-            background-color: #0056b3;
+            background-color: #cc5200;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hello, {{recipient_name}}!</h1>
-        <p>Thank you for being a part of our community. We are excited to announce some new updates and features that we believe you'll love.</p>
-        <p>As a valued member, we want to ensure you are always in the loop. Please click the button below to learn more about what's new:</p>
-        <a href="{{cta_link}}" class="button">Discover More</a>
-        <p>Thank you,</p>
-        <p>The {{company_name}} Team</p>
+        <h1>Get Ready for an Unforgettable Night of Music!</h1>
+        <p>Join us for our next monthly music event featuring an incredible lineup of artists. Don’t miss out on this electrifying experience!</p>
+        <p>Tickets are selling fast, so grab yours now to secure your spot.</p>
+        <a href="{{ticket_link | default: '#' }}" class="button" alt="Buy Tickets Now">Buy Tickets Now</a>
+        <p>We can't wait to see you there!</p>
+        <p>The {{event_name | default: 'Music Nights'}} Team</p>
     </div>
 </body>
 </html>
