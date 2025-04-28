@@ -4,55 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Your Tickets Now!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        p {
-            line-height: 1.6;
-            color: #555555;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        .button {
-            display: inline-block;
-            padding: 12px 24px;
-            font-size: 18px;
-            color: #ffffff;
-            background-color: #ff6600;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .button:hover {
-            background-color: #cc5200;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Get ready for an unforgettable night of music!</h1>
-        <p>Join us for our next monthly music event featuring an incredible lineup of artists. Don’t miss out on this electrifying experience!</p>
-        <p>Tickets are selling fast, so grab yours now to secure your spot.</p>
-        <a href="{{ticket_link | default: '#' }}" class="button" alt="Buy Tickets Now">Buy Tickets Now</a>
-        <p>We can't wait to see you there!</p>
-        <p>The {{event_name | default: 'Music Nights'}} Team</p>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #333333; font-size: 24px; margin-bottom: 20px;">Get ready for an unforgettable night of music!</h1>
+        <p style="line-height: 1.6; color: #555555; font-size: 16px; margin-bottom: 20px;">Join us for our next monthly music event featuring an incredible lineup of artists. Don’t miss out on this electrifying experience!</p>
+        <p style="line-height: 1.6; color: #555555; font-size: 16px; margin-bottom: 20px;">Tickets are selling fast, so grab yours now to secure your spot.</p>
+        <a href="{{ticket_link | default: '#' }}" target="_blank" 
+           style="display: inline-block; padding: 12px 24px; font-size: 18px; color: #ffffff; background-color: #ff6600; text-decoration: none; border-radius: 5px; margin-top: 20px;"
+           alt="Buy Tickets Now">
+           Buy Tickets Now
+        </a>
+        <p style="line-height: 1.6; color: #555555; font-size: 16px; margin-top: 20px;">We can't wait to see you there!</p>
+        <p style="line-height: 1.6; color: #555555; font-size: 16px;">The {{event_name | default: 'Music Nights'}} Team</p>
     </div>
 </body>
 </html>
