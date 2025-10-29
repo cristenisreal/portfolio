@@ -82,7 +82,7 @@ Everything is tied back to helping companies move faster, make better decisions,
 # Let’s Connect
 
 Cristen Isreal  
-Email: cristen.isreal@yahoo.com  
+Email: cristenisreal@gmail.com  
 GitHub: [https://github.com/cristenisreal/portfolio](https://github.com/cristenisreal/portfolio)  
 LinkedIn: [https://www.linkedin.com/in/cristenisreal/](https://www.linkedin.com/in/cristenisreal/)
 
